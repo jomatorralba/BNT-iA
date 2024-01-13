@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BNT Short LIST A</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .container {
+            max-width: 800px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        h1 {
+            font-family: 'Helvetica', sans-serif;
+            font-size: 24px;
+            margin-top: 0;
+        }
+        .image-container {
+            position: relative;
+        }
+        .image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .navigation {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .arrow {
+            font-size: 24px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>LIST A</h1>
+        <div class="image-container">
+            <img class="image" src="imagen1.png" alt="Imagen 1">
+        </div>
+        <div class="navigation">
+            <span class="arrow" onclick="previousImage()">&#8592;</span>
+            <span class="arrow" onclick="nextImage()">&#8594;</span>
+        </div>
+    </div>
+
+    <script>
+        let currentImageIndex = 0;
+        const images = [
+            "imagen1.png",
+            "imagen2.png",
+            "imagen3.png",
+            "imagen4.png",
+            "imagen5.png",
+            "imagen6.png",
+            "imagen7.png",
+            "imagen8.png",
+            "imagen9.png",
+            "imagen10.png",
+            "imagen11.png",
+            "imagen12.png",
+            "imagen13.png",
+            "imagen14.png",
+            "imagen15.png",
+            // Agrega las rutas de tus imágenes aquí
+        ];
+
+        function updateImage() {
+            const imageContainer = document.querySelector(".image-container");
+            imageContainer.innerHTML = `<img class="image" src="${images[currentImageIndex]}" alt="Imagen ${currentImageIndex + 1}">`;
+        }
+
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            updateImage();
+        }
+
+        function previousImage() {
+            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+            updateImage();
+        }
+
+        updateImage();
+    </script>
+</body>
+</html>
